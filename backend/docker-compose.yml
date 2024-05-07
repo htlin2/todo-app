@@ -1,0 +1,21 @@
+services:
+  my-app:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    environment:
+      - PORT=3000
+  postgres:
+    container_name: my_app_db
+    image: postgres:16
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - POSTGRES_USER=my_app_dev
+      - POSTGRES_PASSWORD=my_app_dev
+      - POSTGRES_DB=my_app_dev
