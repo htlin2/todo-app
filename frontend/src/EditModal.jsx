@@ -38,6 +38,9 @@ function EditModal(props) {
           />
         </Modal.Body>
         <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
           <Button
             variant="primary"
             onClick={async () => {
@@ -46,9 +49,6 @@ function EditModal(props) {
             }}
           >
             Save
-          </Button>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
           </Button>
         </Modal.Footer>
       </Modal>
